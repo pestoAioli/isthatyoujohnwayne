@@ -18,8 +18,8 @@ defmodule IsThatYouJohnWayneWeb.PageLive do
   end
 
   def handle_info({ref, result}, socket) when socket.assigns.task.ref == ref do
-    [%{label: label, score: _} | _] = result.predictions
-    {:noreply, assign(socket, task: nil, result: label)}
+    [%{text: text}] = result.results
+    {:noreply, assign(socket, task: nil, result: text)}
   end
 
   def handle_info(_, socket) do
@@ -40,7 +40,7 @@ defmodule IsThatYouJohnWayneWeb.PageLive do
     />
     </form>
     <div class="mt-2 flex space-x-1.5 items-center">
-    <span> Emotion: </span>
+    <span :if={@result}> Thinking... </span>
     <span class="font-medium"><%= @result %></span>
     </div>
     </div>
