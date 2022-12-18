@@ -1,0 +1,18 @@
+<h1>Show Paragraph</h1>
+
+<ul>
+
+  <li>
+    <strong>Prompt:</strong>
+    <%= @paragraph.prompt %>
+  </li>
+
+  <li>
+    <strong>Content:</strong>
+    <%= @paragraph.content %>
+  </li>
+
+</ul>
+
+<span><%= link "Edit", to: Routes.paragraph_path(@conn, :edit, @paragraph) %></span> |
+<span><%= link "Back", to: Routes.paragraph_path(@conn, :index) %></span>

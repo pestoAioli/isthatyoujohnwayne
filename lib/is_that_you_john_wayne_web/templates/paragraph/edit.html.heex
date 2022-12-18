@@ -1,0 +1,5 @@
+<h1>Edit Paragraph</h1>
+
+<%= render "form.html", Map.put(assigns, :action, Routes.paragraph_path(@conn, :update, @paragraph)) %>
+
+<span><%= link "Back", to: Routes.paragraph_path(@conn, :index) %></span>

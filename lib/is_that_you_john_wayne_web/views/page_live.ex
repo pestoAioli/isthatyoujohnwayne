@@ -30,17 +30,21 @@ defmodule IsThatYouJohnWayneWeb.PageLive do
     ~H"""
     <div class="h-screen m-auto flex items-center justify-center antialiased">
     <div class="flex flex-col h-1/2 w-1/2">
+    <p> </p>
     <form class="m-0 flex space-x-2" phx-change="predict">
-    <input
+    <textarea
       class="block w-full"
       type="text"
       name="text"
       phx-debounce="300"
       value={@text}
+      placeholder="Start typing here and then wait for assistance..."
     />
     </form>
     <div class="mt-2 flex space-x-1.5 items-center">
-    <span :if={@result}> Thinking... </span>
+          <%= if @task do %>            
+            <span> thinking...</span>
+          <% end %>
     <span class="font-medium"><%= @result %></span>
     </div>
     </div>

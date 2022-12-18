@@ -18,6 +18,7 @@ defmodule IsThatYouJohnWayneWeb.Router do
     pipe_through :browser
 
     live "/", PageLive
+    live "/paragraphs", IsThatYouJohnWayneWeb.ParagraphView
   end
 
   # Other scopes may use custom stacks.

@@ -1,0 +1,28 @@
+<h1>Listing Paragraphs</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Prompt</th>
+      <th>Content</th>
+
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+<%= for paragraph <- @paragraphs do %>
+    <tr>
+      <td><%= paragraph.prompt %></td>
+      <td><%= paragraph.content %></td>
+
+      <td>
+        <span><%= link "Show", to: Routes.paragraph_path(@conn, :show, paragraph) %></span>
+        <span><%= link "Edit", to: Routes.paragraph_path(@conn, :edit, paragraph) %></span>
+        <span><%= link "Delete", to: Routes.paragraph_path(@conn, :delete, paragraph), method: :delete, data: [confirm: "Are you sure?"] %></span>
+      </td>
+    </tr>
+<% end %>
+  </tbody>
+</table>
+
+<span><%= link "New Paragraph", to: Routes.paragraph_path(@conn, :new) %></span>
